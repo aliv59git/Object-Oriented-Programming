@@ -2,9 +2,9 @@
 
 namespace MobilePhone
 {
-    public enum BatCollection 
+    public enum BatteryType 
     {
-        LI_Ion, Mn_Ni, Polymer 
+        Li_Ion, Mn_Ni, Ni_Cd, Polymer
     }
     
     public class Battery
@@ -12,6 +12,7 @@ namespace MobilePhone
         private string model;
         private int hoursIddle;
         private byte hoursTalk;
+        private static BatteryType typeOfBattery;
 
         public Battery() 
         { 
@@ -23,6 +24,14 @@ namespace MobilePhone
             this.HoursIddle = hoursIddle;
             this.HoursTalk = hoursTalk;
         }
+
+        public Battery(BatteryType typeOfBattery, int hoursIddle, byte hoursTalk)
+        {
+            this.TypeOfBattery = typeOfBattery;
+            this.HoursIddle = hoursIddle;
+            this.HoursTalk = hoursTalk;
+        }
+
         public Battery(string model)
         {
             this.Model = model;
@@ -37,7 +46,6 @@ namespace MobilePhone
             this.Model = model;
             this.HoursTalk = hoursTalk;
         }
-
 
         public string Model
         {
@@ -92,5 +100,7 @@ namespace MobilePhone
             bool isAllowed = Char.IsLetterOrDigit(ch) || ch == '-' || ch == ' '||ch == '_';
             return isAllowed;
         }
+
+        public BatteryType TypeOfBattery { get; set; }
     }
 }

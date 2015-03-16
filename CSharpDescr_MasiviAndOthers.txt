@@ -1,0 +1,357 @@
+Важни въвеждания при if:  някои са в Regex.doc File.ReadAllText(@“..\..\finish.txt”
+
+	Char.IsWhiteSpace; isNullOrEmptyString
+
+	// Get distinct elements and convert into a list again. Премахва еднакви елементи от листа. 
+	List<int> distinct = list.Distinct().ToList();
+
+Важни команди и изрази при МАСИВИ лекцията:
+
+
+List<string> lsitOfStrings = new List<string>();
+
+string[] arrayOfStrings = {"Pesho", Ivan", "...};
+
+List<string> listOfStrings = new List<string>(arrayOfStrings);
+
+foreasch (string str in arrayOfStrings)
+{
+	listOfStrings.Add(str);
+}
+
+//pechat sas razdelitel ", "
+string numbersAsString = string.Join(", ", numbers); 
+Console.WriteLine(numbersAsString);
+
+ili
+int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int[] copyNumbers = numbers;
+numbers[5] = -1111;
+Console.WriteLine(string.Join(", ", numbers));
+Console.WriteLine(string.Join(", ", copyNumbers));
+
+.Add  .Remove   .Capacity .Count   .Input  .RemoveAt(3)  pri List<>
+
+int[] copyArray = array;
+
+int[] copyArray = (int[])array.Clone();   
+
+List<int> list = new List<int>(){1, 2, 3, 4, 5, 6, 7};
+Console.WriteLine(string.Join(", ", list));
+list.Insert(2, -1);
+Console.WriteLine(string.Join(", ", list)); 
+
+хватки с List<>
+сортиране на елементите с  
+List<int> list = new List<int>(){9, 8, 4, 3, 5, 7};
+Console.WriteLine(string.Join(", ", list));
+list.Sort();
+Console.WriteLine(string.Join(", ", list));
+
+Отгоре добавя един метод
+using System.Linq;
+	този неймспейс дава страшно много методи. 
+Копиране на масиви
+int[] cloneAtrray = (int[])array.Clone();//metoda .Clone изкарва Object,
+	затова е закължително кастването с (int[]) отпред!!!
+	Подобно кастване се прави за преминаване към данни от съответния тип, след като операцията е
+		изкарала данни от друг тип. Тогава няма да даде грешка!.
+Копирането при List е различно:
+List<int> copyList = new List<int>(list);
+
+
+Сортиране на масиви
+public class SortingArrays
+{
+    private static void Main()
+    {
+        int[] numbers = { 1, 2, 5, 10, 11 };
+
+        Array.Sort(numbers, new NumbersComparer());
+
+        Console.WriteLine("Numbers sorted by modul 5");
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+
+        Console.WriteLine();
+
+        Array.Sort(numbers, (x, y) => (y % 6).CompareTo(x % 6));
+
+        Console.WriteLine("Numbers sorted descending:");
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+
+        Console.WriteLine();
+
+        string[] students = { "Doncho Minkov", "Nikolay Kostov", "Ivaylo Kenov", "Evlogi Hristov" };
+        Array.Sort(students, new StudentsComparer());
+        foreach (string student in students)
+        {
+            Console.WriteLine(student);
+        }
+    }
+
+    private class NumbersComparer : IComparer<int>
+    {
+        public int Compare(int x, int y)
+        {
+            return (x % 5).CompareTo(y % 5);
+        }
+    }
+
+    private class StudentsComparer : IComparer<string>
+    {
+        public int Compare(string student1, string student2)
+        {
+            var lastName1 = student1.Substring(student1.IndexOf(' ') + 1);
+            var lastName2 = student2.Substring(student2.IndexOf(' ') + 1);
+            return lastName1.CompareTo(lastName2);
+        }
+    }
+}
+
+Методи (функции, с и без параметри)
+
+Всеки метод има име, с което се извиква и описва неговата цел. Декларират се в class. Main() е също метод като другите. 
+static - методът може да се извиква от всеки друг метод, статичен или не.
+void - методът не връща някакъв резултат. Т.е. извършва действие при извикването си, но не връща резултат. 
+Могат да се извикват от всеки друг метод, вкюлчително и от себе си(подобно на рекурсия).
+ 
+Лекция Методи - Ивайло - важни моменти: 
+За да влезем за дебъгване в метод, натискаме F11. И тогава по брейкпойнтите минава по метода.Тогава може и с F10 вътре в метода.
+Важно!!! В курса Arhive-Програмиране-2013/2014-Структури данни и алгоритми-Рекурсия - лекция, задачи и упражнения за рекурсия!!!
+
+Обръщане на числа (като масив от цифри или стринг) или стрингове:  string number;  
+	return string.Join("", number.ToCharArray().Reverse());   иначе:
+	char[] charA = number.ToChararray(); string.Join("", charA.Reverse();)
+
+
+
+
+
+
+
+Използване на класове и обекти
+
+При "." след обекта в списъка - "ключетата" са състояния; "кубчетата" са методи или поведения;
+Класът представлява шаблон за създаване на обекти със сходни характеристики. style for objects creation Класът дава структурата, която трябва да има всеки обект. Самите обекти казват какви са самите стойности. Класът дефинира мрежа от атрибути: променливи и свойства, които поддържат тяхното състояние и поведение. Класът дефинира всички методи и типове данни, които дадения обект има и може да прави. 
+F12 - върху обекта сме и натискаме този клавиш - праща ни там, където е написан обекта. Примерно може да е преди стотици редове код. И това работи за всичко - за променливи, методи класове и т.н. Отиваме там, където е описано даденото нещо, което търсим. 
+Property-s - появяват се като ключета след въвеждане на "." Пропертито описва текущото състояние на даден обект. 
+Методите описват някакво поведение на обекта. Конструкторите - извикват се при new DateTime() например. Дават правилата при създаване на нова инстанция на класа. Всеки клас може да има няколко конструктора, по които можем да създаваме даден обект. Конструктора е като имаме някакъв шаблон, ние да укажем през конструктора как искаме да ни се създават отделните обекти. Като отидем между скобите () можем да видим всички възможни видове конструктори, които същестувват за този клас.  
+Property-та са неща които ни връщат някаква стойност, пазят различна информация. Методите са нещо, което извършва действие - върши работа, изразява поведението на обекта. Последното са конструкторите - това е начинът по който създаваме обекти. Всеки клас има поне 1 конструктор. Може да има и няколко. 
+Примери за класове (или структури): System.Console., System.String(), System.In32(), System.Array, System.Math, System.Random, System.DateTime, System.Collections.Generic.List<T>, 
+
+Полетата са нещо, което се съдържа в класа, но е е видимо за публичния свят. Приличат на Propertyes. Публичните неща (методите) се виждат като "кубче" след въвеждане на "." след инстанцията. А всичко останало, което не се вижда, са полета. Те съдържат отново информация. Всяко едно Property или поле (field) е глобално за целия клас. Ако например static int number = 5 се декларира отгоре след отварящите скоби на класа и ще работи във всички методи. Понеже е static е достъпно отвсякъде в рамките на класа. По този начин сме декларирали някакво поле, което има някаква стойност=5 от тип int. Така тази променлива number е глобална за целия клас. По този начин отгоре в класа можем да си сетнем всички променливи, които ни трябват да използваме в класа и не се налага да ги пишем поотделно в различните методи. Освен това така ще сме сигурни, че няма да има променлива със същото име и да се чудим после какво става. Тези поленца пазят стойност, но не са публични. Самите полета и пропертита могат да бъдат константни и променливи.   
+	const int number =5; - записан е като константа и по-нататък не може да бъде променян. Нямаме вече: number = 10;
+	Същото важи и ако това е глобална променлива. Вместо static сме сложили const.  Примери за такива константи са int.MinValue, int.MaxValue, String.Empty. Всички неща, които има даден обект се достъпват с "." след инстанцията на обекта. 
+	Пропертитата е това, което може да се вижда и да се използва от даден обект. 
+	Ако имаме клас Student, полето firstName трябва да е public, за да можем да го използваме. 
+	Всяко едно проперти има т.нар. get for reading their value and set to changing their value. 
+	Developer-a определя дали дадена стойност може да се записва/променя или не. Много пъти може само да се чете, но не и set.
+	Друг случай е когато не можем да четем, но можем да записваме - при пароли напр. и правене на акаунти. 
+Смяна на цвета на конзолата - Console.BackgroundColor = ConsoleColor. и можем да избираме цвят за бекграунда на текста. 
+	Как се вземат всички методи и пропертита - пишем променливата, пишем "." и те излизат. Пропертито пази текущото състояние. Пропертитата биват read only, write only and (read and write) с get и set. 
+	Всяко нещо, което се съдържа в един клас може да бъде в инстанционен и в статичен вид. Инстанционен, означава че работи върху конкретния обет, конкр. инстанция.  
+string text = "   Pesho    "; string anotherText ="  Ivan   " text.Trim()- чисти празните интервали Trim()работи върху конкретната инстанция.  т.е. той няма static отпред. static означава че работи глобално, върху целия клас.  Всички статични неща са общи. 
+	Ако например напишем DataTime. излизат други неща, които са статични методи и свойства. Това са общите неща за целия клас DataTime. Console.WriteLine() напр. е статичен. и ако отворим с F12 ще видим отпред static. 
+	Инстанционните неща работят върху крайните създадени обекти, а статичните - върху името на класа и се достъпват през името на класа, докато инстанционните се достъпват през името на конкретната инстанция/ създадения обект/.   
+	Всеки клас си има инстанционни и статични методи. Инстанционните се извикват чрез конкретната инстанция, а статичните, чрез името на класа. Ако е статичен метода, в рамките на този клас може директно да се извиква, без името на класа. Докато ако методът е от друг клас, той се извиква през името на този клас. <Име на класа>.метод([параметри]). Пропертито се извиква без (). 
+	Инстанционните методи се извикват през конкретен обект. 
+	Конструкторите са специални методи, които се използват за сетване на първоначалните стойности на полетата в обекта. Като се напише new извикваме конструктор. char[] symbols = {'a', 'b', 'c'}; string text = new string(symbls); cw(); 
+	Важно!!! За да работи text.Reverse().ToArray(); отгоре в дефинициите добавя: using System.Linq; но иска и .ToArray();
+По различен начин създаваме някакъв обект, в зависимост от неговите конструктори (различни видове и ред на параметрите). 	
+Промерно: int[] numbersArray() = new int[5]; numbersArray[1] = 15; List<int> numbers = new List<int>(numbersArray), т.е. прави ми лист от даден масив. Random randomGenerator = new Random(); randomGenerator.Next(101) - дава случайно число от 0 до 100. Може да укажем и долна граница: randomGenerator.Next(minValue, maxValue+1); случайни числа от minValue до maxValue. За да бъдат наистина рандом числа, създаваме отгоре само един рандом генератор, и после даваме където ни трябва .Next(value); Създаването на рандом генератора трябва да е извън цикъла. 
+	Enumerations - дава стойностите от предварително дефинирана мрежа от стойности. Може да даде само от тях. Енумерациите са типове, иито стойности са ограничени в предварително дефинирана мрежа от стойности. Примерно: дни от седмицата, месеци в годината
+Примерно цветовете на конзолата е енумерация. Console.BackgroundColor = ConsoleColor. и можем да изберем само дадените цветове. Как да си създадем енумерация? Вместо думата class пишем enum примерно enum Color {} и т.н. все едно че правим клас. Ето така: 
+enum Color
+{
+	Red,
+	Yellow,
+	Blue
+}		И после: Color myColor = Color.Red;  //myColor  е една от тези три стойности. Това е енумерация. 
+	Structures - подобни на на класовете. Те са value types - директно поддържат стойности. Класовете са референтен тип. Обикновено се използват за запазване на структури от данни без някаква функционалност. Могат да имат полета, пропертита и др. Не се препоръчва да имат методи. Пример на структура е System.DateTime - represents data and time; Структурите са стойностни типове. Т.е. те се създават наново (не като масивите) и стойността се пази. Т.е. това са обекти, които се държат като примитивни данни.  
+	Namespaces - използват се за организиране на сорс кода в по-логичен и управляем начин. Могат да съдържат дефиниции на класове, структури, интерфейси и други типове и неймспейси. Могат да съдържат други namespaces. System contains Data namespace Името на Data e System.Data
+	Отгоре с using..... казваме кое от къде искаме да го ползваме. Ако имаме наш неймспейс, но не е указан отгоре на друг неймспейс, не можем да го ползваме-подчертава. След като го вмъкнем с using... всичко се оправя. Иначе <namespace_name>.<class_n>
+	За Random класа - винаги да имаме само една единствена инстанция на Random. И генерираме числа с .Next от нея. 
+	using System.Text; позволява ни да правим StringBuilder; StringBuilder result = new StringBuilder(); result.Append("A") и т.н. накрая има string resultAsString = result.ToString();	
+	Генериране на парола от 15 случайни символа:  2малки+2големи+число+3специални + до случаен номер запълнени от всички:
+    class Program
+    {
+        private const string CapitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string SmallLetters = "abcdefghijklmnopqrstuvwxyz";
+        private const string Digits = "0123456789";
+        private const string SpecialChars = "~!@#$%^&*()_+=`{}[]\\|':;.,/?<>";
+        private const string AllChars = CapitalLetters + SmallLetters + Digits + SpecialChars;
+
+        static Random rndGenerator = new Random();
+        static void InsertRandomSymbols(int count, StringBuilder password, char[] symbols)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                char symbol = symbols[rndGenerator.Next(0, symbols.Length)];
+                int randomPosition = rndGenerator.Next(0, password.Length);
+                password.Insert(randomPosition, symbol);
+            }
+        }
+        static void Main(string[] args)
+        {
+            StringBuilder password = new StringBuilder();
+            InsertRandomSymbols(2, password, CapitalLetters.ToCharArray());
+            InsertRandomSymbols(2, password, SmallLetters.ToCharArray());
+            InsertRandomSymbols(1, password, Digits.ToCharArray());
+            InsertRandomSymbols(3, password, SpecialChars.ToCharArray());
+            int count1 = rndGenerator.Next(0, 7);
+            InsertRandomSymbols(count1, password, AllChars.ToCharArray());
+            Console.WriteLine(password.ToString());
+        }
+    }
+.Net Common Type System - дефинира всички типове данни, поддържани от .Net Framework; Primitive types, Classes, Structures, Arrays Etc.  Object Oriented by Design. Той е еднакъв за всички .Net езици: C#. BV.Net, J#, JScript.Net, 
+CTS Type: Int32, Single, Boolean, Double, String, Object Абсолютно всичко е обект. Всеки обект има ToString(); Equals(), GetHashCode(); GetType();  Equals()- сравнява два обекта, които не знаем как да сравняваме, дали са на едно и също място в паметта 
+object list = new List<int>(); var name = list.GetTipe().Name; Console.WriteLine(name); ше върне List.
+
+Важно!! При DateTime temp = now.AddDays(i) - можем да правим нова дата като добавяме дни. 
+
+
+	Стрингове и текстообработка
+
+Всеки стринг е read-only; При всяка операция върху стрингове се създава нов стринг с крайния резултат. Референтен тип, но се държи като приминивни данни. Стринговете са обекти, подобни на чар масив. Има String.Length. По индексатор може да се взема всяка отделна буквичка. Сравняване на стрингове: 
+	"abc"CompareTo("abcd") - лексикографски сравнява;    Case-insensitive: 
+int result = string.Compare(str1, str2, true); result==0 (//str1=str2); result<0 //str1 before str2; result > 0 //str1 after str2.
+	Case-sensitive: string.Compare(str1, str2, false);  string.Compare("abc", "ABC", false) дава -1, т.е. "abc" е преди "ABC".
+но интересни са случаите: string.Compare("BAC", "abc", false) //1, т.е. abc е първо; Сравнява като в речник, по азбучен ред, първо малки букви, после големи. Ако искаме лексикографски да сравним, трябва да сравняваме буква по буква. cw("pesho"=="gosho") Сравнява двата стринга //false; if(str1==str2) или if(str1.Equals(str2)) Тези сравнения са Case-sensitive; Pesho"=="pesho"//false
+	Важно!!! Едната задача за изпита - от динамично оптимиране. Но се решават всяка по различен начин. 
+        string[] texts = { "6", "2", "4", "-1", "3" };
+        string minText = texts[0];
+        for (int i = 1; i < texts.Length; i++)
+        {
+            if (string.Compare(minText, texts[i], false) > 0)
+            {
+                minText = texts[i];
+            }
+        }
+	Console.WriteLine(minText);
+Търсене в стрингове: IndexOf(string str); IndexOf(string str, int startIndex); lastIndexOf(string); string text ="pesho";
+int index = text.IndexOf("pes", 3); Ако не намери индекса, дава -1; IndexOf is case-sensitive.
+string subStr = text.Substring(5, 3) - от 5 елемент с дължина 3 символа прави нов субстринг. на практика взема от 5-тия символ включително до (5+3-1)-тия символ, т.е. до 7-мия символ. Ако е text.Substring(5) взема от 5-тия до края всичко.
+Важно!! Как се сплитва стринг с много spaces между елементите. Става с този израз: 
+	string[] numb = text.Split(new char[]{ ' ', ','}, StringSplitOptions.RemoveEmptyEntries); Но може да сплитне и по стринг масив: string[] numb = text.Split(new string[]{" ", ",", "pesho"}, StringSplitOptions.RemoveEmptyEntries);
+Съкратен начин за парсване на стринг, прочетен от конзолата: Важен начин за директно парсване на числа!!!
+int[] numbers = Console.ReadLine().Split(new char[] {' ', ',', '.'}, StringSplitOptions.Remove EmptyEntries).
+Select(int.Parse).ToArray(); -Последната част е: за всеки стринг след разделянето го парсни до инт и го направи на масив.
+	Други операции със стрингове: Replace(), Remove(), Трябва последователно: string str = text.Replace('e', '!');  и
+Console.WriteLine(str); Може и да има наслагване на реплейса:   Replace работи както по символи, така и по стрингове. 
+string newString = text.Replace("Pe", "Go").Replace("sho", "ivan").Replace("Ivan", "Mariq"); 
+	Remove(3, 5) - маха елементите от 3-ти индекс до (3+5-1)-ти индекс.  Remove(3) - маха всичко след 3-тия. Т.е. работи като субстринг, но обратното на това което дава субстринг. 
+	ToLower()  ToUpper() - правят на всички големи на малки букви и обратното. 
+Trim() - маха празни интервали, табулации и т.н. strNew = text.Trim(); TrimStart()-трие само отпред; TrimEnd()-само отзад
+Може да се използва и по специален начин: text.Trim('a');-всичко което започва с 'а' е изтрито, останалото остава. Ако а е по средата на дума няма да го изтрие. Може и така: text.Trim('a', 'b', 'c', ' ');Отрязва в началото и края всички тях. 	
+	По принцип всяка операция със стрингове създава нов стринг и ние трябва да го присвоим на някаква променлива. 
+Не е ефективно използването на "+" в цикъл, защото работи бавно. Затова се работи със StringBuilder();
+            StringBuilder result = new StringBuilder();
+            result.Append("a");
+            result.Append("a");					За да няма празни неща накрая!!!
+            result.Append("a");					Много важно при използване на StringBuilder() !!!
+            result.AppendLine("abcdefgh");
+            Console.WriteLine(result.ToString().Trim());      Накрая има Trim() за да няма празна линия. 
+Имаме reulst.Length;  indedxer -> result[100] дава 101-вия елемент. Имаме още result.Insert(3, "sdf")- преди 3-и вмъква
+Може също така: result[3] = 'a'; result.Remove(), result.Replace(), result.ToString().Trim(); 
+	Важно!!! В Char. има много методи за манипулиране и избор на символи при работа със стрингове и текст. Например:
+	    StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < str.Length; i++)
+            {					//IsUpper(); IsLower(); IsDigit(); IsLetter(); IsLetterOrDigit(); 
+                if (Char.IsUpper(str[i]))	//IsSeparator(); IsNumber(); IsSymbol(); MaxValue; MinValue; 
+                {				//ToLower(); ToUpper(); и други.
+                    sb.Append(str[i]);		проверката може да е и: if(str[i]>='A' && str[i] <='Z')
+                }							{
+            }								}
+            return sb.ToString().Trim();					{0} - за нещата в плейсхолдера
+Форматиране на стрингове: със ToString() String.Format()  number.ToString("C")  {index[,alignment][:formatString]}
+Форматиране при дати: Console.WriteLine("Now is {0:d.mm.yyyy hh:mm:ss}", now);  {0:yyyy.,! - d, mm} може и това например
+	или пък както е в България: {0:d.m.yyyy г.} А може и между тях да се слагат други символи. Печатат се. 
+За културите: Console.WriteLine(System.Threading.Thread.CurrentThread.CurrentCulture); - дава текущата култура. 
+	Също така можем да сетваме културата: горе пишем using System.Threading; и  using System.Globalization; А после: 
+   Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("bg-BG"); и печата по български година
+            //за да работи в различните култури  Changing current Culture
+	Thread.CurrentThread.CurrentCulture = new CultureInfo("en-CA");    
+Culture Sensitive ToString() 	CultureInfo culture = new CultureInfo("fr-CA");
+				string s = number.ToString("C", culture);  //42,00 $
+            DateTime parsed = DateTime.ParseExact("17.02.15", "dd.mm.yy", CultureInfo.InvariantCulture);
+            //даваме му стринга както го искаме, даваме му формата, който описва този начин и инвариантна култура. 
+
+Exceptions Handling
+
+try
+{
+	int.Parse(str);
+	Console.WriteLine("You are entered valid number {0}", str);
+}
+catch (FormatException fe)
+{
+	Console.Error.WriteLine("Exception caught: " + fe);
+	Console.Error.WriteLine("\nException message: " + fe.message);
+	Console.Error.WriteLine("\nStack Trace: " + fe.StackTrace);
+}
+catch (OverflowException)
+{
+	Console.WriteLine("The number is too big to fit in Int32")
+}
+catch(FormatException ex)
+{
+	throw new Exception("Invalid!!!", ex);
+}
+Console>WriteLine("This code will be executed after try-catch") - показва, че грешката е прихваната и програмата продължава да се изпълнява и по-нататък. 
+	Един качествен метод или връща резултат/изпълнява някакво действие или хвърля Exception, когато нещо не е наред.
+С командата Console.WriteLine(GC.GetTotalMemory(false)); ни изкарва на конзолата колко памет е използвала горната операция. Правилото при обработка на Exceptions - винаги започване от най-базовия Exception. Ако сме опитали обратен ред, при компилацията получаваме подчертаване в кода след catch. Трябва да разменим местата на Exceptions. 
+	Хвърляне на Exceptions: throw new .....
+	if(value < 0)
+	{
+		throw new System.ArgumentOutOfRange("Sqrt from negative numbers is undefined!")
+	}	
+Имаме метода Console.Error.WriteLine("Error...."); - използва се за да видим какво ще ни изпише компилатора при грешка. Има също и такава команда:    Console.SetError(new StringWriter());	
+	След конструкцияка try catch ако има finaly {}  , то този код във finaly задължително се изпълнява, дори преди това в  catch да имаме return; 
+ако в chtch{} конструкцията поставим Envirinment.Exit(0); може да ни е начин за излизане от рекурсията. 
+	Важно!!! С хвърлянето на ексепшън: throw new ....ArgumentsOutOfRange("message") ние казваме как да гърми, т.е. как/какво съобщение да даде при exception.  Някъде в метод след if хвърляме exception: throw new FormatException("Format is not valid!"), и след това в Main се прихваща Exception-a с конструкцията try - catch. Също така От един Exception към друг и как накрая да ги има всичките: try{...} catch (Exception ex)
+		{
+			Console.WriteLine(ex.Message); - Ще изпринти съобщението след throw..., което е горе в метода. 
+		}
+За да пази предишните Exceptions подаваме друг Exception с променлива ex примерно, и в нея то пази и предишни Exception. Това е като хвърли ново throw new IndexOutOfRangeException("Sorry!", ex) отден Message в него да има и "ex", т.е. променлива. Това е когато искаме да се визуализира и вътрешен ексепшън. 
+	Друго ако имаме хвърлен някакъв Exception ние можем да го хвърлим в catch конструкцията отново:
+try{..} catch (FormatException fe)
+	{
+		Console.WriteLine("Parse failed!")
+		throw fe;//Re-throw the caught exception
+	}		 друг начин е нов catch само с throw;//Re-throw the last caught exception)
+
+Текстови файлове
+
+StreamReader strReader = new StreamReader("test.txt"); Методи: ReadLine(); ReadToEnd(); Close();
+	using(strReader)   //или  using (stringWriter) В този скоуп се затварят потоците за четене и писане. 
+{
+}
+Може и така: 	string fileContents = strReader.ReadToEnd();	Ако искаме енкодинг след името на файла поставяме енкодинга:
+		Console.WriteLine(fileContents);            StreamReader streamReader = new StreamReader(cyr.txt, Encoding.UTF-8);
+		strReader.Close();
+Аналогично е за StreamWriter: streamWriter writer = new StreamWriter(writeFile.txt); също работи конструкцията using (writer){}
+горе трябва да е въведено: using System.IO; Encoding:   StreamWriter writer = new StreamWriter(test.txt, false, Encoding.UTF8);
+Отново имаме: Write(); WriteLne(); Flish(); 
+
+Ники - Обяснение на задачата Magic Words  - има след напълването на Листа, при неговата обработка, трик: 
+                var word = words[i];
+                var nextIndex = word.Length % (n + 1);
+
+                words[i] = null;   //маркира думата, която ще бъде изтрита, без да нарушава подредбата на стринга/листа
+                words.Insert(nextIndex, word);  //вмъква думата на желаната позиция
+                words.Remove(null);		//премахва маркираната дума. т.е. премахва старата дума. 
+
+
+
+
+
+
+
+
+

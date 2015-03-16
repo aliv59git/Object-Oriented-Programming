@@ -26,15 +26,15 @@ namespace MobilePhone
             this.PhoneDisplay = phoneDisplay;
             this.Owner = owner;
         }
-        public MobilePhone(string model, string manifacturer)
+        public MobilePhone(string model, string manufacturer)
         {
             this.Model = model;
             this.Manufacturer = manufacturer;
         }
-        public MobilePhone(string model, string manifacturer, Display phoneDisplay, string owner)
+        public MobilePhone(string model, string manufacturer, Display phoneDisplay, string owner)
         {
             this.Model = model;
-            this.Manufacturer = manifacturer;
+            this.Manufacturer = manufacturer;
             this.PhoneDisplay = phoneDisplay;
             this.Owner = owner;
         }
@@ -92,7 +92,7 @@ namespace MobilePhone
                     throw new ArgumentNullException("You are'n enter manufacturer!");
                 }
                 if (value.Length <2 ||value.Length > 50)
-                {
+                { 
                     throw new ArgumentOutOfRangeException();
                 }
                 foreach (var item in value)
@@ -148,6 +148,17 @@ namespace MobilePhone
         public Battery PhoneBattery { get; set; }
 
 
+        public override string ToString()
+        {
+            return string.Format("My Phone is: Model: {0} from {1}. \nIt costed {2} leva, has batery{3}, display{4} and his owner instanly is {5}.",
+                this.Model, this.Manufacturer, this.Price, this.phoneBattery, this.phoneDisplay, this.Owner);
+        }
+
+
+
+
+
+
         public bool IsAllowedLetter(char ch)
         {
             bool isAllowed = Char.IsLetter(ch) || ch == '-' || ch == ' ';
@@ -156,7 +167,7 @@ namespace MobilePhone
 
         public bool IsAllowedLetterOrDigit(char ch)
         {
-            bool isAllowed = Char.IsLetterOrDigit(ch) || ch == '-' || ch == ' ';
+            bool isAllowed = Char.IsLetterOrDigit(ch) || ch == '-' || ch == ' '|| ch == '_';
             return isAllowed;
         }
     }
