@@ -11,34 +11,86 @@ namespace MobilePhone
     {
         private string model;
         private int hoursIddle;
-        private int hoursTalk;
+        private byte hoursTalk;
 
-        public Battery(string model, int hoursIddle, int hoursTalk)
+        public Battery() 
+        { 
+        }
+
+        public Battery(string model, int hoursIddle, byte hoursTalk)
         {
             this.Model = model;
             this.HoursIddle = hoursIddle;
             this.HoursTalk = hoursTalk;
         }
-
-        public Battery(Battery bat)
+        public Battery(string model)
         {
-            bat.Model = "BatCollection.Polymer";
-            bat.HoursIddle = 390;
-            bat.HoursTalk = 21;
+            this.Model = model;
+        }
+        public Battery(string model, int hoursIddle)
+        {
+            this.Model = model;
+            this.HoursIddle = hoursIddle;
+        }
+        public Battery(string model, byte hoursTalk)
+        {
+            this.Model = model;
+            this.HoursTalk = hoursTalk;
         }
 
-        public string Model { get; set; }
+
+        public string Model
+        {
+            get { return this.model; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException();
+                }
+                if (value.Length < 2 || value.Length > 50)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                foreach (var ch in value)
+                {
+                    if (!IsAllowedLetterOrDigit(ch))
+                    {
+                        throw new ArithmeticException("Invalid Model!");
+                    }
+                }
+                this.model = value;
+            }
+        }
         public int HoursIddle 
         {
             get { return this.hoursIddle; }
-            set { this.hoursIddle = value; }
+            set 
+            {
+                if (value <= 0 || value > 1000)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                this.hoursIddle = value;
+            }
         }
-        public int HoursTalk
+        public byte HoursTalk
         {
             get { return this.hoursTalk; }
-            set { this.hoursTalk = value; }
+            set
+            {
+                if (value <= 0 || value > 100)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                this.hoursTalk = value;
+            }
         }
 
-
+        public bool IsAllowedLetterOrDigit(char ch)
+        {
+            bool isAllowed = Char.IsLetterOrDigit(ch) || ch == '-' || ch == ' '||ch == '_';
+            return isAllowed;
+        }
     }
 }
