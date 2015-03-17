@@ -99,7 +99,7 @@ namespace _01.MobilePhone
                 Console.WriteLine("I'm calling in {0:dd.MM.yyyy} at {1} hour and {2} minutes to {3} and duration of the call was {4} minutes.", item.Date, item.Hours, item.Minutes, item.DealledPhoneNumber, item.Duration);
             }
 
-            myCallHistory.Clear();
+            myCallHistory.Clear(); 
         }
     }
 }
