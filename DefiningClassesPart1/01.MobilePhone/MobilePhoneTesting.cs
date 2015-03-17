@@ -93,7 +93,13 @@ namespace _01.MobilePhone
             decimal priceTotalNew = MobilePhone.CalculateTotalPrice(myCallHistory, 0.37m);
             Console.WriteLine("My price for calls now after removing longest call is: {0}", priceTotalNew);
 
+            Console.WriteLine("Print Call History:");
+            foreach (var item in myCallHistory)
+            {
+                Console.WriteLine("I'm calling in {0:dd.MM.yyyy} at {1} hour and {2} minutes to {3} and duration of the call was {4} minutes.", item.Date, item.Hours, item.Minutes, item.DealledPhoneNumber, item.Duration);
+            }
 
+            myCallHistory.Clear();
         }
     }
 }
