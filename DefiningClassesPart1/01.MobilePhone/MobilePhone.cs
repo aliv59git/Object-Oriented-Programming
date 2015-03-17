@@ -1,6 +1,10 @@
-﻿using System;
+﻿using _01.MobilePhone;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace MobilePhone
+
+namespace _01.MobilePhone
 {
 
     public class MobilePhone
@@ -11,11 +15,9 @@ namespace MobilePhone
         private string owner;
         private Display phoneDisplay;
         private Battery phoneBattery;
-
-        //Battery phoneBattery = new Battery("Li-Ion", 390, 21);
-
-        //Display phoneDisplay = new Display(16777216, 12.954f); //16 M colors; 5.1" disgonal Display = 12.954 cm;
-
+        public static string IPhone4SInfo = "IPhone4S has LED-backlit IPS LCD, capacitive touchscreen, 16M colors, Size: 3.5\", Non-removable Li-Po 1432 mAh battery (hoursIddle=200 h, hoursTalk = 14 h); This is from Apple and has been released in 2011. With iOS 5, Bluetooth 4.0, жироскоп, двуядрен процесор A5 it looks nice well.";
+        private PhoneCall phoneCall;   
+        private List<PhoneCall> callHistory = new List<PhoneCall>();
 
         public MobilePhone(string model, string manufacturer, float price, Battery phoneBattery, Display phoneDisplay, string owner)
         {
@@ -147,6 +149,10 @@ namespace MobilePhone
 
         public Battery PhoneBattery { get; set; }
 
+        public List<PhoneCall> CallHistory
+        {
+            get { return this.callHistory; }
+        }
 
         public override string ToString()
         {
@@ -154,10 +160,35 @@ namespace MobilePhone
                 this.Model, this.Manufacturer, this.Price, this.phoneBattery, this.phoneDisplay, this.Owner);
         }
 
+        public void AddPhoneCall(PhoneCall phoneCall)
+        {
+            this.callHistory.Add(phoneCall);
+        }
+        public void DeletePhoneCall(PhoneCall phoneCall)
+        {
+            int index = this.callHistory.IndexOf(phoneCall);
+            if (index != -1)
+            {
+                this.callHistory.RemoveAt(index);
+            }
+        }
+        public void ClearPhoneHistory()
+        {
+            this.callHistory.Clear();
+        }
 
 
 
+        public static decimal CalculateTotalPrice(List<PhoneCall> callHistory, decimal priceOfMinutePhoneCall)
+        {
+            decimal result = 0.0m;
+            foreach (var item in callHistory)
+            {
+                result += (Math.Floor((decimal)item.Duration) + 1) * priceOfMinutePhoneCall;
+            }
 
+            return result;
+        }
 
         public bool IsAllowedLetter(char ch)
         {

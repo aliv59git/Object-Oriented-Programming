@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MobilePhone
+
+namespace _01.MobilePhone
 {
 
     class MobilePhoneTesting
@@ -47,6 +52,47 @@ namespace MobilePhone
             Console.WriteLine();
             MobilePhone myPhone6 = new MobilePhone("Samsung Galaxy S5", "Samsung", 859, phoneBattery, phoneDisplay, "Ivan Penkanchin");
             Console.WriteLine(myPhone6.ToString());
+
+            Console.WriteLine();
+            Console.WriteLine(MobilePhone.IPhone4SInfo);
+            Console.WriteLine();
+            Console.WriteLine("Information from the collection in array: ");
+            MobilePhone[] arrGSMs = new MobilePhone[] { myPhone, myPhone1, myPhone2, myPhone3, myPhone4, myPhone5, myPhone6 };
+            foreach (var item in arrGSMs)
+            {
+                Console.WriteLine("Model of GSM: {0}, Manufacturer {1} -> Display {2}, Battery Model: {3}. It costed {4} leva. Has owner: {5}", 
+                    item.Model, item.Manufacturer, item.PhoneDisplay, item.PhoneBattery, item.Price, item.Owner);
+            }
+
+            List<PhoneCall> myCallHistory = new List<PhoneCall>();
+            for (int i = 0; i < 10; i++)
+            {
+                DateTime inTheMoment = DateTime.Now;
+                PhoneCall myCall = new PhoneCall(inTheMoment.Date, inTheMoment.Hour, inTheMoment.Minute, "0899204321", (decimal)(i + 0.2));
+                myCallHistory.Add(myCall);
+            }
+
+            Console.WriteLine();
+            decimal priceTotal = 0.0m;
+            priceTotal = MobilePhone.CalculateTotalPrice(myCallHistory, 0.37m);
+            Console.WriteLine("My price for calls is: {0}", priceTotal);
+
+            decimal longestCall = myCallHistory[0].Duration;
+            int index = 0;
+            for (int i = 0; i < myCallHistory.Count; i++)
+            {
+                if (longestCall < myCallHistory[i].Duration)
+                {
+                    longestCall = myCallHistory[i].Duration;
+                    index = i;
+                }
+            }
+
+            myCallHistory.Remove(myCallHistory[index]);
+
+            decimal priceTotalNew = MobilePhone.CalculateTotalPrice(myCallHistory, 0.37m);
+            Console.WriteLine("My price for calls now after removing longest call is: {0}", priceTotalNew);
+
 
         }
     }

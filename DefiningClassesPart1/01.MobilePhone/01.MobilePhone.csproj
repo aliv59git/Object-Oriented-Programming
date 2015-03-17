@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battery.cs" />
+    <Compile Include="PhoneCall.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="MobilePhone.cs" />
     <Compile Include="MobilePhoneTesting.cs" />
