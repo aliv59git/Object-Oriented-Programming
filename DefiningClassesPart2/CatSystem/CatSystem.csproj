@@ -41,14 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animal.cs" />
+    <Compile Include="AnotherCat.cs" />
+    <Compile Include="AuthorAttribute.cs" />
     <Compile Include="Cat.cs" />
     <Compile Include="CatColor.cs" />
+    <Compile Include="Dog.cs" />
     <Compile Include="GenericList.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="CatSystemStart.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringCouple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
