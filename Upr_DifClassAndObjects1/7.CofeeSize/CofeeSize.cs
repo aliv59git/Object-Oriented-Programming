@@ -22,7 +22,7 @@ public class Coffee
 }
 
 
-class CofeeSize
+public class CofeeMashine
 {
     static void Main(string[] args)
     {

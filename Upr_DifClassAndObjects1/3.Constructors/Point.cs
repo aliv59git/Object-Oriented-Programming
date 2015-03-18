@@ -1,5 +1,5 @@
 ﻿using System;
-class Point
+public class Point
 {
     private int xCoord;
     private int yCoord;
