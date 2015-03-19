@@ -3,7 +3,7 @@
 
 namespace CatSystem
 {
-    public class Cat
+    public class Cat : Animal
     {
         public static int NumberOfLegs
         {
@@ -17,8 +17,6 @@ namespace CatSystem
         {
             this.Color = color;
         }
-
-        public string Name { get; set; }
 
         public int Age { get; private set; }
 
