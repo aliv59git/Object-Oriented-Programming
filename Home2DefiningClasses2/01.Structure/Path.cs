@@ -31,7 +31,7 @@ namespace _01.Structure
                 lengthOfPath += Distance.DistanceBetweenTwoPoints(sequenceOfPoints[i - 1], sequenceOfPoints[i]);
             }
 
-            return lengthOfPath;
+            return lengthOfPath; 
         }
         
     }
