@@ -1,5 +1,5 @@
 ﻿using System;
-class Rectangle
+public class Rectangle
 {
     private float width;
     private float height;

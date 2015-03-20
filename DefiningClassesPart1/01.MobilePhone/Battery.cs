@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MobilePhone
+namespace _01.MobilePhone
 {
     public enum BatteryType 
     {
