@@ -33,6 +33,7 @@ namespace _01.Structure
             double pathLength = myPath.PathLength(myPath);
             Console.WriteLine("My path is: "+ myPath.ToString());
             Console.WriteLine("The length of this path is: "+pathLength);
+            Console.WriteLine(myPath[2].ToString());
             Console.WriteLine();
 
             Path myPath1 = new Path();
@@ -43,7 +44,15 @@ namespace _01.Structure
             }
             Console.WriteLine("The length of path {0} is: {1}", myPath1.ToString(), myPath1.PathLength(myPath1));
 
+            Console.WriteLine();
+            Path rPath = PathStorage.ReadPath("..\\..\\testPoints.txt");
+            Console.WriteLine("The reading from file path is: "+rPath.ToString());
 
+            double pathLength1 = rPath.PathLength(rPath);
+            Console.WriteLine("The length of this path is: " + pathLength1);
+
+            string filePath1 = "..\\..\\resPoints.txt";
+            PathStorage.WritePath(myPath1, filePath1);
 
 
 

@@ -21,7 +21,7 @@ namespace _01.Structure
             {
                 return this.sequenceOfPoints;
             }
-            set { ;}
+            set { this.sequenceOfPoints = value;}
         }
 
         public void AddPoins (Point3D point, string name, float xCoord, float yCoord, float zCoord)
@@ -35,6 +35,11 @@ namespace _01.Structure
             point.YCoord = yCoord;
             point.ZCoord = zCoord;
             this.sequenceOfPoints.Add(point);
+        }
+
+        public int CountElements(Path path)
+        {
+            return this.sequenceOfPoints.Count;
         }
 
         public double PathLength(Path path)
