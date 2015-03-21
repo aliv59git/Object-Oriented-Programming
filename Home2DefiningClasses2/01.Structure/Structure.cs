@@ -23,7 +23,7 @@ namespace _01.Structure
             myPath.ToString();
             myPath.AddPoins(point, "A", 1f, 1f, 1f);
             myPath.AddPoins(point, "B", 2f, 2f, 2f);
-            Console.WriteLine(myPath.PathLength(myPath));
+            Console.WriteLine("MyPath is {0} and has length: {1}", myPath.ToString(), myPath.PathLength(myPath));
             myPath.AddPoins(point, "C", 3f, 3f, 3f);
             myPath.AddPoins(point, "D", 12.73f, -3.6f, 5.4f);
             myPath.AddPoins(point, "E", 22.73f, 3.6f, -5.4f);
@@ -31,18 +31,17 @@ namespace _01.Structure
             Console.WriteLine();
 
             double pathLength = myPath.PathLength(myPath);
-            Console.WriteLine("My path is: "+ myPath.ToString());
+            Console.WriteLine("My new path is: "+ myPath.ToString());
             Console.WriteLine("The length of this path is: "+pathLength);
-            Console.WriteLine(myPath[2].ToString());
             Console.WriteLine();
 
             Path myPath1 = new Path();
-            int count = 51;
+            int count = 31;
             for (int i = 0; i < count; i++)
             {
                 myPath1.AddPoins(point, "P" + i, i*2, i*3+5, -i * 2+11 );
             }
-            Console.WriteLine("The length of path {0} is: {1}", myPath1.ToString(), myPath1.PathLength(myPath1));
+            Console.WriteLine("The length of path \n{0} \nis: {1}", myPath1.ToString(), myPath1.PathLength(myPath1));
 
             Console.WriteLine();
             Path rPath = PathStorage.ReadPath("..\\..\\testPoints.txt");
@@ -53,8 +52,7 @@ namespace _01.Structure
 
             string filePath1 = "..\\..\\resPoints.txt";
             PathStorage.WritePath(myPath1, filePath1);
-
-
+            Console.WriteLine();
 
         }
     }

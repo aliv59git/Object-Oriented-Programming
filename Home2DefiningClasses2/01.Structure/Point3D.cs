@@ -7,15 +7,6 @@ namespace _01.Structure
     {
         private static readonly Point3D startOfCordinateSystem;
 
-        //public Point3D(string name, float xCoord, float yCoord, float zCoord)
-        //{
-        //    this.Name = name;
-        //    this.XCoord = xCoord;
-        //    this.YCoord = yCoord;
-        //    this.ZCoord = zCoord;
-        //}
-
-
         public string Name { get; set; }
         public float XCoord { get; set; }
         public float YCoord { get; set; }

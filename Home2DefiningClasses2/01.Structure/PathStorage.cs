@@ -12,9 +12,6 @@ namespace _01.Structure
     {
         public static List<Point3D> sequenceOfPoints;
 
-
-        //StreamWriter strWriter = new StreamWriter(@"..\..\resPoints.txt");
-
         static string filePath ="..\\..\\testPoints.txt";
         public static Path ReadPath(string filePath)
         {
