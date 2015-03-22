@@ -8,31 +8,55 @@ namespace _01.Structure
 {
     public class Path
     {
-        public const int NumberOfPoints = 100;
-
-        private static Point3D[] sequenceOfPoints;
+        private List<Point3D> sequenceOfPoints;
 
         public Path()
         {
-            sequenceOfPoints = new Point3D[NumberOfPoints];
-            for (int i = 0; i < sequenceOfPoints.Length; i++)
-            {
-                sequenceOfPoints[i] = new Point3D() { XCoord = i, YCoord = -i, ZCoord = i*2};
-            }
-        }
-
-        public Point3D[] SequenceOfPoints { get; set; }
-
-        public static double PathLength()
-        {
-            double lengthOfPath = 0;
-            for (int i = 1; i < sequenceOfPoints.Length; i++)
-            {
-                lengthOfPath += Distance.DistanceBetweenTwoPoints(sequenceOfPoints[i - 1], sequenceOfPoints[i]);
-            }
-
-            return lengthOfPath; 
+            this.sequenceOfPoints = new List<Point3D>();
         }
         
+        public List<Point3D> this[int index]
+        {
+            get
+            {
+                return this.sequenceOfPoints;
+            }
+            set { this.sequenceOfPoints = value;}
+        }
+
+        public void AddPoins (Point3D point, string name, float xCoord, float yCoord, float zCoord)
+        {
+            if (this.sequenceOfPoints.Contains(point))
+            {
+                throw new ArgumentException();
+            }
+            point.Name = name;
+            point.XCoord = xCoord;
+            point.YCoord = yCoord;
+            point.ZCoord = zCoord;
+            this.sequenceOfPoints.Add(point);
+        }
+
+        public int CountElements(Path path)
+        {
+            return this.sequenceOfPoints.Count;
+        }
+
+        public double PathLength(Path path)
+        {
+            double lengthOfPath = 0;
+            for (int i = 1; i < this.sequenceOfPoints.Count; i++)
+            {
+                lengthOfPath += Distance.DistanceBetweenTwoPoints(this.sequenceOfPoints[i - 1], this.sequenceOfPoints[i]);
+            }
+
+            return lengthOfPath;
+        }
+
+        public override string ToString()
+        {
+            return string.Join(", ", this.sequenceOfPoints);
+        }
+
     }
 }

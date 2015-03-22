@@ -11,19 +11,18 @@ namespace _01.Structure
         public float XCoord { get; set; }
         public float YCoord { get; set; }
         public float ZCoord { get; set; }
-        public static Point3D StartOfCoordinateSystem
+        public static Point3D O
         {
             get 
             {
-                Point3D O = new Point3D() { XCoord = 0.0f, YCoord = 0.0f, ZCoord = 0.0f };
-                O.Name = "O";
+                Point3D O = new Point3D() { Name= "O", XCoord = 0.0f, YCoord = 0.0f, ZCoord = 0.0f };
                 return O;
             }
         }
 
         public override string ToString()
         {
-            return string.Format("the point3D: ({0}, {1}, {2})", this.XCoord, this.YCoord, this.ZCoord);
+            return string.Format("{0}({1}, {2}, {3})", this.Name, this.XCoord, this.YCoord, this.ZCoord);
         }
 
     }
