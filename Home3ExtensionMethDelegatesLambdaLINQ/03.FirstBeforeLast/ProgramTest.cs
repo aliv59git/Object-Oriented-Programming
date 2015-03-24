@@ -22,6 +22,7 @@ namespace _03.FirstBeforeLast
                 new Student {FirstName = "Ivan", LastName = "Ivanov", Age = 37}, 
             };
             var ourStudents = FirstBefore.FirstBeforeLast(allStudents);
+            Console.WriteLine("Students with first name before last name: ");
             FirstBefore.ToString(ourStudents);
             
             Console.WriteLine();
@@ -33,6 +34,11 @@ namespace _03.FirstBeforeLast
             Console.WriteLine("Students ordered descending by First name, then by last name: ");
             var ourSrudents2 = FirstBefore.OrderByNames(allStudents);
             FirstBefore.ToString(ourSrudents2);
+
+            Console.WriteLine();
+            Console.WriteLine("Students ordered descending by First name, then by last name: ");
+            var ourSrudents3 = FirstBefore.OrderByNames1(allStudents);
+            FirstBefore.ToString(ourSrudents3);
 
         }
     }
