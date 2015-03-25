@@ -22,5 +22,13 @@ namespace _09.Students
         {
             return allStudents.FindAll(st => st.GroupNumber == 2).OrderBy(st => st.FirstName).Select(st => st).ToList();
         }
+
+        public static List<Student> StudentsWithTwoMarks2(this List<Student> allStudents)
+        {
+            var result = (allStudents.FindAll(st => (allStudents.FindAll(stu => stu.Marks.Contains(2)).Count == 2)).Select(st => st)).ToList();
+            return result;
+        }
+
+
     }
 }
