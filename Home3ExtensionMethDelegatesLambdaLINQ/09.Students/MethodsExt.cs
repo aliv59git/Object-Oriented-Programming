@@ -25,7 +25,10 @@ namespace _09.Students
 
         public static List<Student> StudentsWithTwoMarks2(this List<Student> allStudents)
         {
-            var result = (allStudents.FindAll(st => (allStudents.FindAll(stu => stu.Marks.Contains(2)).Count == 2)).Select(st => st)).ToList();
+            var result = (from st in allStudents
+                          where st.Marks.Count(x => x == 2) == 2
+                          select st).ToList();
+
             return result;
         }
 

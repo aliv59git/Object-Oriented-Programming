@@ -12,15 +12,15 @@ namespace _09.Students
         {
             List<Student> students = new List<Student>()
             {
-                new Student { FirstName = "Maria", LastName = "Toneva", FN = 1234065, Tel = "02-975-22-23", Email = "kajiIme@abv.bg", Marks = new List<int>(){2, 2, 3, 4, 5, 6}, GroupNumber = 2},
-                new Student {FirstName = "Ivan", LastName = "Petkov", FN = 123408577, Tel = "0910-975-28-42", Email = "imeKaji@abv.bg", Marks = new List<int>(){2, 5, 3, 5, 2, 3, 4}, GroupNumber = 1}, 
-                new Student {FirstName = "Ani", LastName = "Tzolova", FN = 123406411, Tel = "034-973-32-14", Email = "kajiImtoSi@gmail.com", Marks = new List<int>(){6, 4, 6, 3, 4, 5, 6}, GroupNumber = 2}, 
-                new Student {FirstName = "Pepi", LastName = "Achev", FN = 123405139, Tel = "02-875-22-23", Email = "kajiImeNew@abv.bg", Marks = new List<int>(){5, 4, 2, 3, 4, 5, 5}, GroupNumber = 2}, 
-                new Student {FirstName = "Val", LastName = "Wrangler", FN = 123406417, Tel = "02-873-67-87", Email = "kajiImence@gmail.com", Marks = new List<int>(){3, 2, 6, 5, 6}, GroupNumber = 2}, 
-                new Student {FirstName = "Ivan", LastName = "Kostov", FN = 123406123, Tel = "092-875-22-23", Email = "kajiI@abv.bg", Marks = new List<int>(){2, 3, 4, 5, 2, 4}, GroupNumber = 3}, 
-                new Student {FirstName = "Cici", LastName = "Cvetanov", FN = 123406232, Tel = "023-5-22-23", Email = "Ime@gmail.com", Marks = new List<int>(){4, 2, 3, 4, 5, 4}, GroupNumber = 2}, 
-                new Student {FirstName = "Ivan", LastName = "Atanassov", FN = 123407340, Tel = "02-875-28-13", Email = "kajiSi@abv.bg", Marks = new List<int>(){3, 6, 2, 3, 4, 5, 6}, GroupNumber = 1}, 
-                new Student {FirstName = "Ivan", LastName = "Ivanov", FN = 12340667, Tel = "02-975-06-08", Email = "ime@gmail.com", Marks = new List<int>(){4, 6, 2, 3, 4, 2, 5, 6}, GroupNumber = 2}, 
+                new Student { FirstName = "Maria", LastName = "Toneva", FN = "1234065", Tel = "02-975-22-23", Email = "kajiIme@abv.bg", Marks = new List<int>(){2, 2, 3, 4, 5, 6}, GroupNumber = 2, Group = new Group { GroupNumber = 2, DepartmentName = "Mathematics"}},
+                new Student {FirstName = "Ivan", LastName = "Petkov", FN = "123408577", Tel = "0910-975-28-42", Email = "imeKaji@abv.bg", Marks = new List<int>(){2, 5, 3, 5, 2, 3, 4}, GroupNumber = 1, Group = new Group { GroupNumber = 2, DepartmentName = "Physics"}}, 
+                new Student {FirstName = "Ani", LastName = "Tzolova", FN = "123406411", Tel = "034-973-32-14", Email = "kajiImtoSi@gmail.com", Marks = new List<int>(){6, 4, 6, 3, 4, 5, 6}, GroupNumber = 2, Group = new Group { GroupNumber = 2, DepartmentName = "Mathematics"}}, 
+                new Student {FirstName = "Pepi", LastName = "Achev", FN = "123405139", Tel = "02-875-22-23", Email = "kajiImeNew@abv.bg", Marks = new List<int>(){5, 4, 2, 3, 4, 5, 5}, GroupNumber = 2, Group = new Group { GroupNumber = 2, DepartmentName = "Chemistry"}}, 
+                new Student {FirstName = "Val", LastName = "Wrangler", FN = "123406417", Tel = "02-873-67-87", Email = "kajiImence@gmail.com", Marks = new List<int>(){3, 2, 6, 5, 6}, GroupNumber = 2, Group = new Group { GroupNumber = 2, DepartmentName = "Mathematics"}}, 
+                new Student {FirstName = "Ivan", LastName = "Kostov", FN = "123406123", Tel = "092-875-22-23", Email = "kajiI@abv.bg", Marks = new List<int>(){2, 3, 4, 5, 2, 4}, GroupNumber = 3, Group = new Group { GroupNumber = 2, DepartmentName = "Mathematics"}}, 
+                new Student {FirstName = "Cici", LastName = "Cvetanov", FN = "123406232", Tel = "023-5-22-23", Email = "Ime@gmail.com", Marks = new List<int>(){4, 2, 3, 4, 5, 4}, GroupNumber = 2, Group = new Group { GroupNumber = 2, DepartmentName = "Biology"}}, 
+                new Student {FirstName = "Ivan", LastName = "Atanassov", FN = "123407340", Tel = "02-875-28-13", Email = "kajiSi@abv.bg", Marks = new List<int>(){3, 6, 2, 3, 4, 5, 6}, GroupNumber = 1, Group = new Group { GroupNumber = 2, DepartmentName = "Mathematics"}}, 
+                new Student {FirstName = "Ivan", LastName = "Ivanov", FN = "12340667", Tel = "02-975-06-08", Email = "ime@gmail.com", Marks = new List<int>(){4, 6, 2, 3, 4, 2, 5, 6}, GroupNumber = 2, Group = new Group { GroupNumber = 2, DepartmentName = "Mathematics"}} 
             };
 
             //Student.PrintStudent(students);
@@ -78,6 +78,23 @@ namespace _09.Students
             var resultSt = MethodsExt.StudentsWithTwoMarks2(students);
             Student.PrintStudent(resultSt);
 
+            //Problem 15
+            Console.WriteLine();
+            Console.WriteLine("//Problem 15");
+            Console.WriteLine("The students that enrolled in 2006");
+            var studentsEnrolledIn2006 = students.FindAll(st => st.FN.IndexOf("06") == 4).OrderBy(st => st.FirstName).ToList();
+            Student.PrintStudent(studentsEnrolledIn2006);
+
+            //Problem 16
+            Console.WriteLine();
+            Console.WriteLine("//Problem 16");
+            Console.WriteLine("The students studied Mathematics: ");
+            var studentsInMathematics = students.FindAll(st => st.Group.DepartmentName == "Mathematics").OrderBy(st => st.FirstName).ToList();
+            Console.WriteLine(string.Join("\n", studentsInMathematics.Select(st => st.ToString())));
+            Console.WriteLine();
+            Console.WriteLine("The same: ");
+            Console.WriteLine(string.Join("\n", studentsInMathematics.Select(st => st.FullName)));
+            
         }
     }
 }

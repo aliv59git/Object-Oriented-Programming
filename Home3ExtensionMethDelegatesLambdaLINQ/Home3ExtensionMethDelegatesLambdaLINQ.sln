@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.Timer", "Timer\07.Timer.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.Students", "09.Students\09.Students.csproj", "{FD6F9648-820D-4BFA-9BAD-2CAD33F634EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17.StringWithMaxLength", "17.StringWithMaxLength\17.StringWithMaxLength.csproj", "{2A241A92-1B99-4307-895D-925514382312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18.GroupinByGroupName", "18.GroupinByGroupName\18.GroupinByGroupName.csproj", "{8AE37AD7-9253-4B36-ABB5-3F9629CF54CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{FD6F9648-820D-4BFA-9BAD-2CAD33F634EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD6F9648-820D-4BFA-9BAD-2CAD33F634EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD6F9648-820D-4BFA-9BAD-2CAD33F634EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A241A92-1B99-4307-895D-925514382312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A241A92-1B99-4307-895D-925514382312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A241A92-1B99-4307-895D-925514382312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A241A92-1B99-4307-895D-925514382312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE37AD7-9253-4B36-ABB5-3F9629CF54CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE37AD7-9253-4B36-ABB5-3F9629CF54CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE37AD7-9253-4B36-ABB5-3F9629CF54CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE37AD7-9253-4B36-ABB5-3F9629CF54CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

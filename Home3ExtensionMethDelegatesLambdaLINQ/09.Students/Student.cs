@@ -10,16 +10,19 @@ namespace _09.Students
     {
         private string firstName;
         private string lastName;
-        private int fN;
+        private string fN;
         private string tel;
         private string email;
         private List<int> marks;
         private int groupNumber;
+        private string departmentName;
+        private Group group;
 
         public Student()
         {
         }
-        public Student(string firstName, string lastName, int fN, string tel, string email, List<int> marks, int groupNumber): this()
+        public Student(string firstName, string lastName, string fN, string tel, string email, List<int> marks, int groupNumber, Group group)
+            : this()
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -28,6 +31,7 @@ namespace _09.Students
             this.Email = email;
             this.Marks = new List<int>();
             this.GroupNumber = groupNumber;
+            this.Group = new Group(this.groupNumber, this.departmentName);
         }
 
         public string FirstName
@@ -62,12 +66,12 @@ namespace _09.Students
                 this.lastName = value;
             }
         }
-        public int FN
+        public string FN
         {
             get { return this.fN; }
             set
             {
-                if ((value <= 6) && (value > 15))
+                if ((value.Length <= 6) && (value.Length > 15))
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -116,6 +120,27 @@ namespace _09.Students
             get { return this.groupNumber; }
             set { this.groupNumber = value; }
         }
+        public string DepartmentName
+        {
+            get { return this.departmentName; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException();
+                }
+                if (value.Length > 30)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                this.departmentName = value;
+            }
+        }
+        public Group Group
+        {
+            get { return this.group; }
+            set { this.group = value; }
+        }
 
         public string FullName
         {
@@ -129,8 +154,8 @@ namespace _09.Students
         {
             foreach (var item in students)
             {
-                Console.WriteLine("Name: {0} {1} \nFN: {2} Tel.: {3}, Email: {4}\nMarks: {5}, GroupNumber: {6}",
-                    item.FirstName, item.LastName, item.FN, item.Tel, item.Email, string.Join(", ", item.Marks), item.GroupNumber);
+                Console.WriteLine("Name: {0} {1} \nFN: {2} Tel.: {3}, Email: {4}\nMarks: {5}, GroupNumber: {6}, DepatmentName: {7}",
+                    item.FirstName, item.LastName, item.FN, item.Tel, item.Email, string.Join(", ", item.Marks), item.GroupNumber, item.Group.DepartmentName);
                 Console.WriteLine();
             }
         }

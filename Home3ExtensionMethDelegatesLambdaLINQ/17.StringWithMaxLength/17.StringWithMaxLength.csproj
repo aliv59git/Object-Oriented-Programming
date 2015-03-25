@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD6F9648-820D-4BFA-9BAD-2CAD33F634EF}</ProjectGuid>
+    <ProjectGuid>{2A241A92-1B99-4307-895D-925514382312}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_09.Students</RootNamespace>
-    <AssemblyName>09.Students</AssemblyName>
+    <RootNamespace>_17.StringWithMaxLength</RootNamespace>
+    <AssemblyName>17.StringWithMaxLength</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,12 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Group.cs" />
-    <Compile Include="StudensWithExcelent.cs" />
-    <Compile Include="MethodsExt.cs" />
-    <Compile Include="ProgramStudentsTest.cs" />
+    <Compile Include="StringWithMaxLength.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
