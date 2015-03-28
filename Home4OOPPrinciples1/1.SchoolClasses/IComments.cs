@@ -3,8 +3,8 @@
 
 namespace _1.SchoolClasses
 {
-    public interface IPerson
+    interface IComments
     {
-        string Name { get;  }
+        string Comments { get; set; }
     }
 }

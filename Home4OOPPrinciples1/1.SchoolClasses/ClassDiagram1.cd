@@ -8,19 +8,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="_1.SchoolClasses.ClassOfStudents" Collapsed="true">
-    <Position X="5.75" Y="2" Width="1.5" />
+    <Position X="5.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAIAAAACAAAAAAAAAAAAAAAAAAAQAAAAgACAAI=</HashCode>
+      <HashCode>AAIgAAAIAAAACAAAAAAAAAAAAAAAIAAAAAAAAgACIAI=</HashCode>
       <FileName>ClassOfStudents.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="School" />
-    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="_1.SchoolClasses.Person" Collapsed="true">
     <Position X="1.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.71" />
@@ -28,33 +26,33 @@
   <Class Name="_1.SchoolClasses.School" Collapsed="true">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAEAACAEAABAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>School.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_1.SchoolClasses.Student">
     <Position X="2.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAEAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Student.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ClassOfStudents" />
-    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="_1.SchoolClasses.Subject" Collapsed="true">
-    <Position X="2.75" Y="5.5" Width="1.5" />
+    <Position X="5.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABAEAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAABAAAIAAAACAAAAAAAAAIAAAACAAIAA=</HashCode>
       <FileName>Subject.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="_1.SchoolClasses.Teacher">
     <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Teacher.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="_1.SchoolClasses.IPerson" Collapsed="true">
     <Position X="3.5" Y="0.5" Width="1.5" />

@@ -3,20 +3,23 @@ using System.Collections.Generic;
 
 namespace _1.SchoolClasses
 {
-    public class Teacher : Person
+    public class Teacher : Person, IPerson
     {
         private List<Subject> subjects;
 
-        internal Subject Subject
+        public Teacher(string name)
+            :this()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.Name = name;
+            this.subjects = new List<Subject>();
         }
+        public Teacher()
+        {
+        }
+
+
+
+
 
     }
 }

@@ -3,9 +3,10 @@
 
 namespace _1.SchoolClasses
 {
-    public class Person : IPerson
+    public class Person : IPerson, IComments
     {
         private string name;
+        private string comments;
 
         public Person(string name)
             : this()
@@ -19,7 +20,7 @@ namespace _1.SchoolClasses
         public string Name
         {
             get { return this.name; }
-            set
+            internal set
             {
                 if (value.Length < 2 || value.Length > 50)
                 {
@@ -29,8 +30,41 @@ namespace _1.SchoolClasses
                 {
                     throw new ArgumentNullException();
                 }
+                foreach (var ch in value)
+                {
+                    if (!IsAllowedSymbol(ch))
+                    {
+                        throw new ArgumentException();
+                    }
+                }
                 this.name = value;
             }
+        }
+
+        public string Comments
+        {
+            get { return this.comments; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("You have no commemt!");
+                }
+                this.comments = value;
+            }
+
+        }
+
+        public override string ToString()
+        {
+            return String.Format("Name: {0}, Comments: {1}", this.Name, this.Comments);
+        }
+
+
+        internal bool IsAllowedSymbol(char ch)
+        {
+            bool isAllowed = Char.IsLetterOrDigit(ch) || ch == '-' || ch == ' ' || ch == '_';
+            return isAllowed;
         }
     }
 }
