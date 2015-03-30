@@ -9,9 +9,9 @@ namespace _2.BankAccouts
     {
         static void Main(string[] args)
         {
-            BankAccount account1 = new DepositAccount();
-
-
+            Customer pepi = new Customer("Pesho", LoanCustomer.Individual);
+            BankAccount account1 = new DepositAccount( new Customer("Pesho", LoanCustomer.Individual), 1234.32, 3.75, 2345.23, 234.56);
+            Console.WriteLine(pepi.CustomerType);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace _2.BankAccouts
         private double interest_rate;
         private double drawMoney;
 
-        public DepositAccount(string customer, double balance, double interest_rate, double depositMoney, double drawMoney)
+        public DepositAccount(Customer customer, double balance, double interest_rate, double depositMoney, double drawMoney)
             : this()
         {
             this.Customer = customer;
@@ -49,7 +49,14 @@ namespace _2.BankAccouts
 
         public override double InterestAmount(int monts)
         {
-            return this.Interest_Rate * monts;
+            if (this.Balance < 1000 && this.Balance > 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return this.Interest_Rate * monts;
+            }
         }
 
     }

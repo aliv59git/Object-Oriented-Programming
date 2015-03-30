@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="LoanCustomer.cs" />
     <Compile Include="DepositAccount.cs" />
     <Compile Include="LoanAccount.cs" />
     <Compile Include="MortageAccount.cs" />

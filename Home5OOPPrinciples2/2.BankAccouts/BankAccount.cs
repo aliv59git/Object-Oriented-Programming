@@ -7,7 +7,7 @@ namespace _2.BankAccouts
     {
         private double depositMoney;
 
-        public string Customer { get; protected set; }
+        public Customer Customer { get; protected set; }
         public double Balance { get; protected set; }
         public abstract double Interest_Rate { get; set; }
         public double DepositMoney
