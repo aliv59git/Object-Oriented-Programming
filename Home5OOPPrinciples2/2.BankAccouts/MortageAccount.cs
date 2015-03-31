@@ -35,7 +35,18 @@ namespace _2.BankAccouts
 
         public override double InterestAmount(int monts)
         {
-            return this.Interest_Rate * monts;
+            if (this.Customer.GetType().Name == "IndividualCustomer" && monts <= 6)
+            {
+                return 0;
+            }
+            else if (this.Customer.GetType().Name == "CompanyCustomer" && monts <= 12)
+            {
+                return this.Interest_Rate * monts/2;
+            }
+            else
+            {
+                return this.Interest_Rate * monts;
+            }
         }
     }
 }

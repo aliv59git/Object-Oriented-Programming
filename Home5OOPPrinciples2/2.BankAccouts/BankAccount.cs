@@ -10,6 +10,7 @@ namespace _2.BankAccouts
         public Customer Customer { get; protected set; }
         public double Balance { get; protected set; }
         public abstract double Interest_Rate { get; set; }
+        public virtual double DrawMoney { get; set; }
         public double DepositMoney
         {
             get { return this.depositMoney; }

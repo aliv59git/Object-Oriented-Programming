@@ -34,7 +34,7 @@ namespace _2.BankAccouts
                 this.interest_rate = value;
             }
         }
-        public double DrawMoney
+        public override double DrawMoney
         {
             get { return this.drawMoney; }
             set
