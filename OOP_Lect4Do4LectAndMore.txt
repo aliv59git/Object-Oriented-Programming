@@ -263,6 +263,40 @@ var engine =newEngine(newExtensions());
 Можеш да погледнеш ТУК как съм го направил:
 преди един час от   topalkata (1521 точки)
 
+Решаване на първото домашно (Defining Classes Part I)
+
+	Important! propfull tab - tab  дава макет на пълно проперти, несъкратени варианти, дава и полето, и пропертито.
+
+	Прави Клас Лайбрари. Прави си в този неймспейс - MobilePhoneLibrary трите класа на GSM, Battery, Display. Във всеки от тези класове си прави пропертитата и полетата(после ще ги валидира през пропертитата). Нещата които са задължителни - mandatory - ги прави в конструктора. Прави си отделен ConsoleApplication за тестване с Main method-a. При него в референции включва референция към ClassLibrary-то. Прави си там нов gsm след като има конструктор със задължителните за gsm неща. Ако в конструктора иска да има дефолтна стойност за някой от параметрите, горе в името на конструктора, където са параметрите с = "" задава тази дефолтна стойност - между () тези скоби. Долу в конструктора си има this.Manufacturer = manufacturer; и при правенето на нов gsm този параметър става незадължителен (появява се в [] такива скоби, ако се подаде, се използва подадения, иначе се ползва този указан като дефолтен). 
+	По този начин ако за някое от полетата имаме дефолтни стойности, които искаме да подадем, ги подаваме на първия ред в конструктора по гореописания начин!!! Тук, в конструктора става инициализацията, подаването на някакви данни. А филдовете си вършат тяхната рабта - капсулиране. Така е по-добре, отколкото в някакви константи да са дефолтните стойности. Т.е. Ако имаме дефолтни стойности за някакви полета, по-добре в конструкторите. В конструктора още може да зададе като параметри незадължителните полета, да им даде = null, както и променлив брой параметри: .. params int[] arr)
+	Така че в конструктора първо са задължителните полета, после другите с дефолтни стойности, после параметри в []
+Важно!!! за полето цена пише по този начин: decimal? price = null, така го пише и горе в полетата и в конструктора. Като го посочи с ? в полето горе, то е нулъбъл обект, обект който може да е null. Само при decimal? price горе в полетата поставя ?. Когато го прави за owner - собственика, който е стринг, е без въпрос! Тъй като той може да е null като стринг
+	При инициализирането на нов gsm в Main метода, като добавим задължителните, ако искаме да прескочим цената, но да сетваме собственика например пишем: owner: "Ivan" примерно. Т.е. на този параметър от конструктора дай тази стойност. Това важи и при подаване на параметри на методи!!!  
+	Така със задаване на дефолтните стойности в конструктора, ни улеснява да не правим толкова много конструктори за конструктор - чейнинг. Т.е. със задължителните параметри и с по един от другите в повече, докато стигнем всичките. Или изредим различни комбинации от тях. Което излиза че трябва да напишем много конструктори. Ако трябва да се напишат 3 контруктора, ще ги напишем поотделно. Но ако имаме изредени много параметри, ще ползваме начина с дефолтните стойности, който ни спестява писането на много конструктори. 
+	При ButteryType - enumeration - прави нов клас енумарация ButteryType и изрежда батениите. 
+	Отделните части на кода в gsm класа са групирани с #region Fields  ....  #endregion. И може да ги скрива - за прегледен поглед върху целия код. Прави такива за: #region Constructors #region Properties #region Methods 
+	Тъй като при оверрайдването на ToString се иска много информация, си го прави със StringBuilder. Всичко се достъпва през пропертитата. Отива и овъррайдва и ToString() и на Buttery, Display, за да знаят как да се показват.  
+	Когато в пропертитата прави проверките, при Батерия и Дисплей проверява директно if(value == null) Exception, Това е в сетъра. Прави го така, а не this.Battery== null. 
+	В класа Батерия добавя ново поле: private ButteryType butteryType; //за да използва (enum ButteryType) и проперти public ButteryType ButteryType { get{return butteryType; } set {this.ButteryType = value;}} После в Стринг билдера си го добавя с this.ButteryType. ToString() завършва с return sb.ToString();
+	В класа gsm си добавя ново проперти и поле public static GSM IPhone4S { get {return IPhone4S;} } от тип GSM да поддържа инф. за Iphone4S. Прави го статично и само с гетър. От едно статично проперти се връща обекта без this!!! И в конструктора добавя: (без this) IPhone4S = new GSM("IPhone4S", "Apple", 1000.0m, "Nijakoj si", new Buttery(), new Display( Size = 4, NumberOfColors = "16M")); Този целия ред е добавен в конструктора ( в първия конструктор, който е с всички неща (optional = null)). преди това преправи (numberOfColors -> string). Също така си прави вместо преди въведеното статичен конструктор в който премества информацията за IPhone4S:
+static GSM(){IPhone4S = new GSM("IPhone4S", "Apple", 1000.0m, "Nijakoj si", new Buttery(), new Display( Size = 4, NumberOfColors = "16M"));} Това е без public и е преди всички конструктори, след полетата. Полето за ай-фона го поставя най-отгоре и е статично: private static GSM IPhone4S; 
+	За повикванията си прави нов клас Call. 
+private DateTime dateTime;
+public Call(){ thsi.dateTime = DateTime.Now; } //Constructor
+public string Time {get {return this.dateTime.ToString("HH:mm:ss")}; }
+public string Date {get {return this.dateTime.ToString("dd/MM/yyyy"); } }
+public string DealedPhone {get; set;}
+public uint Duration{get; set;}
+Пробва го в мейн метода: var call = new Call(); cw(call.Date); cw(call.Time);	
+	За следващата задача добавя ново поле и проперти в GSM класа: private List<Call> callHistory;
+public List<Call> CallHistory() {get {return this.callHistory; } set { if(this.callHistory == null)
+{ this.callHistory = new List<Call>();}
+this.CallHistory.Clear(); callHistory = value;} }   
+	В базовия конструктор да си има реда: this.callHistory = new List<Call>();
+Накрая си прави няколко метода: public void AddCall(Call call){} public void DeleteCall(Call call){} public void ClearHistory(){ this.callHistory.Clear(); }    public decimal CalculateTotalCost(decimal fixedPrice){
+ulong totalDuration = 0; foreach (Call call in this.callHistory){totalDuration += (ulong)call.Duration; } 
+return  (decimal)totalDuration * fixedPrice / 60;}
+	След това прави форцикъл, 10 обаждания, и изчислява горните неща. 
 
 
 
