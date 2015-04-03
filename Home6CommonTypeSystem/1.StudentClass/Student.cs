@@ -2,12 +2,12 @@
 
 namespace _1.StudentClass
 {
-    public class Student
+    public class Student : ICloneable, IComparable<Student>
     {
         private string firstName;
         private string middleName;
         private string lastName;
-        private int? sSNumber;
+        private int sSNumber;
         private string permanentAddress;
         private string email;
         private int? course;
@@ -15,13 +15,26 @@ namespace _1.StudentClass
         private Specialty speialty;
         private Faculty faculty;
 
-        public Student(string firstName, string middleName = null, string lastName, int? sSNumber=null, string permanentAddress = null, string email = null, int? course = null, University university, Faculty faculty, Specialty specialty)
+        public Student(string firstName, string middleName, string lastName, University university, Faculty faculty, Specialty specialty, int? sSNumber = null, string permanentAddress = null, string email = null, int? course = null)
+            :this(firstName, lastName, (int)sSNumber)
+        {
+            this.MiddleName = middleName;
+            this.PermanentAddress = permanentAddress;
+            this.Email = email;
+            this.Course = 3;
+            this.University = university;
+            this.Faculty = faculty;
+            this.Specialty = specialty;
+        }
+        public Student(string firstName, string lastName, int sSNumber)
+            : this()
         {
             this.FirstName = firstName;
-            this.MiddleName = middleName;
             this.LastName = lastName;
-            //this.SSNumber = sSNumber;
-            this.PermanentAddress = permanentAddress;
+            this.SSNumber = sSNumber;
+        }
+        public Student()
+        {
         }
 
         public string FirstName { get; private set; }
@@ -98,8 +111,82 @@ namespace _1.StudentClass
 
             return true;
         }
-        
-        
 
+        public override int GetHashCode()
+        {
+            return this.LastName.GetHashCode() ^ this.SSNumber;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1} {2} has SSNumber {3}, permanent address: {4}, Email: {5}. He is in {6} course in {7}, {8} faculty, specialty {9}", this.FirstName, this.MiddleName, this.LastName, this.SSNumber, this.PermanentAddress, this.Email, this.Course, this.University, this.Faculty, this.Specialty);
+        }
+
+        public static bool operator ==(Student st1, Student st2)
+        {
+            return Student.Equals(st1, st2);
+        }
+        public static bool operator !=(Student st1, Student st2)
+        {
+            return !Student.Equals(st1, st2);
+        }
+
+
+        object ICloneable.Clone()
+        {
+            return this.Clone();
+        }
+        public Student ShallowCopy()
+        {
+            return this;
+        }
+        public Student MemberwiseCopy()
+        {
+            return (Student)this.MemberwiseClone();
+        }
+
+        public Student Clone() //deep cloning
+        {
+            Student original = this;
+            var properties = original.GetType().GetProperties();
+            Student result = new Student();
+            result.FirstName = original.FirstName;
+            result.MiddleName = original.MiddleName;
+            result.LastName = original.LastName;
+            result.University = original.University;
+            result.Faculty = original.Faculty;
+            result.Specialty = original.Specialty;
+            result.SSNumber = original.SSNumber;
+            result.PermanentAddress = original.PermanentAddress;
+            result.Email = original.Email;
+            result.Course = original.Course;
+            return result;
+        }
+
+        public int CompareTo(Student other)
+        {
+            int first = this.FirstName.CompareTo(other.FirstName);
+            int second = this.LastName.CompareTo(other.LastName);
+            if (first != 0)
+            {
+                return first;
+            }
+            else if (second != 0)
+            {
+                return second;
+            }
+            else if (this.SSNumber < other.SSNumber)
+            {
+                return -1;
+            }
+            else if(this.SSNumber > other.SSNumber)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }
