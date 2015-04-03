@@ -8,6 +8,12 @@ namespace _2.Person
     {
         static void Main(string[] args)
         {
+            var person1 = new Person("Pesho");
+            Console.WriteLine(person1.ToString());
+            var person2 = new Person("Pesho", 26);
+            Console.WriteLine(person2.ToString());
+
         }
+        
     }
 }
