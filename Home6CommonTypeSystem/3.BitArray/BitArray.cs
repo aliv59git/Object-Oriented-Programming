@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
+using System.Text;
 
 
 namespace _3.BitArray
@@ -76,6 +77,16 @@ namespace _3.BitArray
         public int CompareTo(object obj)
         {
             return this.Number.CompareTo((obj as BitArray).Number);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 63; i >=0; i--)
+            {
+                sb.Append((this.Number >> i) & 1);
+            }
+            return sb.ToString();
         }
 
     }
