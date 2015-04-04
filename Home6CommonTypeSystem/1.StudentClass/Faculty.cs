@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.StudentClass
 {
-    enum Faculty
+    public enum Faculty
     {
         Mathematics,
         Physics, 
