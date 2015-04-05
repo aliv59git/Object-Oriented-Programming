@@ -1,0 +1,7 @@
+Lumberjack Jack is now at position (2,2)
+Lumberjack Jack gathered 10 Lumber from Tree
+No targets to attack at Guard Max's position
+Guard Peter attacked Guard Evil and did 30 damage
+Guard Max attacked Guard Evil and did 30 damage
+Guard Peter attacked Guard Evil and did 30 damage
+Guard Peter attacked Guard Evil and did 10 damage

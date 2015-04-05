@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{74CED30E-8FCD-44FB-960F-DE29602BDEF1}</ProjectGuid>
+    <ProjectGuid>{6D18D32F-6EFE-459A-8C4D-DF5EA8CCCAEF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SoftwareAcademy</RootNamespace>
-    <AssemblyName>SoftwareAcademy</AssemblyName>
+    <RootNamespace>AcademyRPG</RootNamespace>
+    <AssemblyName>AcademyRPG</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,17 +41,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ICourse.cs" />
-    <Compile Include="Interfaces\ICourseFactory.cs" />
-    <Compile Include="Interfaces\ILocalCourse.cs" />
-    <Compile Include="Interfaces\IOffsiteCourse.cs" />
-    <Compile Include="Interfaces\ITeacher.cs" />
-    <Compile Include="Models\CourseFactory.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\LocalCourse.cs" />
-    <Compile Include="Models\OffsiteCourse.cs" />
-    <Compile Include="Models\Teacher.cs" />
-    <Compile Include="`RunProgram.cs" />
+    <Compile Include="ExtendedEngine.cs" />
+    <Compile Include="Interfaces\ICollectable.cs" />
+    <Compile Include="Interfaces\ICollector.cs" />
+    <Compile Include="Interfaces\IControllable.cs" />
+    <Compile Include="Interfaces\IDestroyable.cs" />
+    <Compile Include="Interfaces\IFighter.cs" />
+    <Compile Include="Interfaces\IGatherer.cs" />
+    <Compile Include="Interfaces\INameable.cs" />
+    <Compile Include="Interfaces\IObjectProducer.cs" />
+    <Compile Include="Interfaces\IResource.cs" />
+    <Compile Include="Interfaces\IVulnerable.cs" />
+    <Compile Include="Models\Fighter.cs" />
+    <Compile Include="Models\Knight.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Models\Giant.cs" />
+    <Compile Include="Models\Guard.cs" />
+    <Compile Include="Models\House.cs" />
+    <Compile Include="Models\Lumberjack.cs" />
+    <Compile Include="Models\MovingObject.cs" />
+    <Compile Include="Models\Ninja.cs" />
+    <Compile Include="Models\Point.cs" />
+    <Compile Include="Models\ResourceType.cs" />
+    <Compile Include="Models\Rock.cs" />
+    <Compile Include="Models\StaticObject.cs" />
+    <Compile Include="Models\Tree.cs" />
+    <Compile Include="Models\WorldObject.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
