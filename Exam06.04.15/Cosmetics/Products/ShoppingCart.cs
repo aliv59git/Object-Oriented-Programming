@@ -9,23 +9,26 @@ namespace Cosmetics.Products
 {
     class ShoppingCart : IShoppingCart
     {
-        private ICollection<Product> shoppingCart;
-        public ShoppingCart SoppingCart { get; private set; }
+        private ICollection<IProduct> shoppingCart;
+
         public ShoppingCart()
         {
-            this.shoppingCart = new List<Product>();
+            this.shoppingCart = new List<IProduct>();
         }
 
         public void AddProduct(IProduct product)
         {
-            this.shoppingCart.Add(product as Product);
+            if (product != null)
+            {
+                 this.shoppingCart.Add(product);
+            }
         }
 
         public void RemoveProduct(IProduct product)
         {
             if (this.shoppingCart.Contains(product))
             {
-                this.shoppingCart.Remove(product as Product);
+                this.shoppingCart.Remove(product);
             }
         }
 

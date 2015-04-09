@@ -9,7 +9,6 @@ namespace Cosmetics.Products
 {
     public class Category : ICategory
     {
-
         private string name;
         private ICollection<IProduct> cosmeticsCategory;
 
@@ -22,7 +21,7 @@ namespace Cosmetics.Products
         public string Name
         {
             get { return this.name; }
-            set 
+            private set 
             {
                 if (value.Length < 2 || value.Length > 15)
                 {
@@ -34,7 +33,10 @@ namespace Cosmetics.Products
 
         public void AddCosmetics(IProduct cosmetics)
         {
-            this.cosmeticsCategory.Add(cosmetics);
+            if (cosmetics != null)
+            {
+                this.cosmeticsCategory.Add(cosmetics);
+            }
         }
 
         public void RemoveCosmetics(IProduct cosmetics)
@@ -51,6 +53,14 @@ namespace Cosmetics.Products
 
         public string Print()
         {
+            var orderedCosmeticsCategory = from pr in cosmeticsCategory
+                                           .OrderBy(pr => pr.Brand)
+                                           .ThenByDescending(pr => pr.Price)
+                                           .Select(pr => pr);
+                                           
+
+
+
             string result = string.Format("{0} category – {1} products/product in total", this.Name, cosmeticsCategory.Count);
             result += this.ToString();
             

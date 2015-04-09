@@ -13,7 +13,7 @@ namespace Cosmetics.Products
         private UsageType usage;
         private uint milliliters;
 
-        public Shampoo(string name, string brand, decimal price, Common.GenderType gender, uint milliliters, Common.UsageType usage)
+        public Shampoo(string name, string brand, decimal price, GenderType gender, uint milliliters, UsageType usage)
             : base(name, brand, price, gender)
         {
             this.Milliliters = milliliters;
@@ -25,7 +25,7 @@ namespace Cosmetics.Products
             get { return this.milliliters; }
             private set { this.milliliters = value; }
         }
-        public Common.UsageType Usage
+        public UsageType Usage
         {
             get { return this.usage; }
             private set { this.usage = value; }

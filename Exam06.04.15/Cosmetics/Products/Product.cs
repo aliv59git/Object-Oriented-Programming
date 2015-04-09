@@ -8,7 +8,7 @@ using Cosmetics.Common;
 
 namespace Cosmetics.Products
 {
-    public class Product : IProduct
+    public abstract class Product : IProduct
     {
         private string name;
         private string brand;
@@ -61,7 +61,7 @@ namespace Cosmetics.Products
             }
         }
 
-        public Common.GenderType Gender
+        public GenderType Gender
         {
             get { return this.gender; }
             private set
@@ -73,8 +73,6 @@ namespace Cosmetics.Products
                 this.gender = value;
             }
         }
-
-        public IProduct Cosmetics { get; private set; }
 
         public virtual string Print()
         {
