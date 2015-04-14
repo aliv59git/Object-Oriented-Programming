@@ -35,6 +35,13 @@ namespace Cosmetics.Products
         {
             string result = String.Format("* Quantity: {0} ml ", this.Milliliters);
             result += String.Format("* Usage: EveryDay/Medical");
+            
+
+            - {product brand} – {product name}:
+              * Price: ${product price}
+              * For gender: {product gender}
+              * Quantity: {product quantity} ml (when applicable)
+              * Usage: EveryDay/Medical (when applicable)    
             return result;
         }
 

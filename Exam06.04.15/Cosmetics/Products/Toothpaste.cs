@@ -23,9 +23,11 @@ namespace Cosmetics.Products
 
         public override string Print()
         {
-            return "* Ingredients: "+string.Join(", ", this.ingredients);
-        }
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(String.Format("- {0} – {1}:\n* Price: ${2}\n* For gender: {3}\n* Ingredients: {4}", this.Brand, this.Name, this.Price, this.Gender, string.Join(", ", this.ingredients)));
 
+            return sb.ToString();
+        }
 
     }
 }

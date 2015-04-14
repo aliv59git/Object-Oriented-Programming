@@ -1,4 +1,5 @@
 ﻿using Cosmetics.Contracts;
+using Cosmetics.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace Cosmetics.Products
 {
     public class Category : ICategory
     {
+        public const int MinSymbols = 2;
+        public const int MaxSymbols = 15;
+
         private string name;
         private ICollection<IProduct> cosmeticsCategory;
 
@@ -23,10 +27,11 @@ namespace Cosmetics.Products
             get { return this.name; }
             private set 
             {
-                if (value.Length < 2 || value.Length > 15)
-                {
-                    throw new ArgumentOutOfRangeException("Category name must be between 2 and 15 symbols long!");
-                }
+                Validator.CheckIfStringLengthIsValid(value, MaxSymbols, MinSymbols, String.Format("Category name must be between {0} and {1} symbols long!", MinSymbols, MaxSymbols));
+                //if (value.Length < 2 || value.Length > 15)
+                //{
+                //    throw new ArgumentOutOfRangeException(String.Format("Category name must be between {0} and {1} symbols long!", MinSymbols, MaxSymbosl));
+                //}
                 this.name = value;
             }
         }
@@ -53,22 +58,28 @@ namespace Cosmetics.Products
 
         public string Print()
         {
-            var orderedCosmeticsCategory = from pr in cosmeticsCategory
-                                           .OrderBy(pr => pr.Brand)
-                                           .ThenByDescending(pr => pr.Price)
-                                           .Select(pr => pr);
-                                           
-
-
-
-            string result = string.Format("{0} category – {1} products/product in total", this.Name, cosmeticsCategory.Count);
-            result += this.ToString();
-            
-
-
-            return result;
+            var orderedCosmeticsCategory = cosmeticsCategory
+                                .OrderBy(pr => pr.Brand)
+                                .ThenByDescending(pr => pr.Price)
+                                .Select(pr => pr);
+            StringBuilder sb = new StringBuilder();
+            if (cosmeticsCategory.Count == 1)
+            {
+                sb.AppendLine(String.Format("{0} category – {1} product in total", this.Name, this.cosmeticsCategory.Count));
+            }
+            else if (cosmeticsCategory.Count > 1)
+            {
+                sb.AppendLine(String.Format("{0} category – {1} products in total", this.Name, this.cosmeticsCategory.Count));
+            }
+            else
+            {
+                throw new ArgumentException("The cosmeticsCategoy is empty!");
+            }
+            foreach (var item in cosmeticsCategory)
+	            {
+		            item.Print();
+	            }
+            return sb.ToString();
         }
-
-
     }
 }

@@ -68,14 +68,16 @@ namespace Cosmetics.Products
             {
                 if (value.ToString() != "Men" || value.ToString() != "Women" || value.ToString() != "Unisex")
                 {
-                    throw new ArgumentOutOfRangeException("Product brand must be between 2 and 10 symbols long!");
+                    throw new ArgumentOutOfRangeException("Product gender must be Men, Women or Unisex!");
                 }
                 this.gender = value;
             }
         }
 
-        public virtual string Print()
+        public abstract string Print()
         {
+
+
 
             string result = string.Format("- {0} - {1}:\n", this.Brand, this.Name);
               result += String.Format("* Price: ${0}\n", this.Price);
